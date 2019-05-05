@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace 是dao接口的类路径 -->
+<mapper namespace="cn.zhou.core.dao.TestDao">
+	<!--parameterType="TestBean" 是javabean 的类路径,此处由于配置文件已经配置了别名， 所以可省略部分路径,直接写javabean 
+		类名 -->
+	<!--id 是dao接口的方法名称所需要调用的方法名称 -->
+	<insert id="add" parameterType="TestBean">
+		insert into test_shop (id, name, birthday
+		)
+		value
+		(
+		#{id}
+		,
+		#{name }
+		,
+		#{birthday}
+		)
+
+	</insert>
+
+	<select id="query" parameterType="int" resultType="TestBean">
+		select *
+		from test_shop
+		where id = #{id}
+	</select>
+
+</mapper>

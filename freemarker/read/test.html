@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	${f} ${hh}
+	<!-- 　遍历list集合 -->
+	<#list list as l> ${l} ${hh}</#list>
+
+	<!-- 　遍历map集合 -->
+	<#if test?exists> <#list test?keys as k> ${k}
+	${hh} ${test[k]} ${hh} test[k] ${hh} </#list> </#if>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

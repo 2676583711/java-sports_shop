@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         id="WebApp_ID" version="2.4">
+
+    <!--<!DOCTYPE web-app PUBLIC
+            "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+            "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+    <web-app>-->
+    <display-name>Archetype Created Web Application</display-name>
+    <!-- <display-name>Archetype Created Web Application</display-name>-->
+
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:application-context.xml</param-value>
+    </context-param>
+
+    <!--配置spring监听器,项目启动自动加载spring IOC 容器，从而启动整个项目 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+
+    <!-- 配置springmvc-front.xml -->
+    <servlet>
+        <servlet-name>front</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+
+            <!--在web.xml中定义contextConfigLocation参数 Spring会使用这个参数去加载所有逗号分隔的xml文件， 如果没有这个参数，Spring默认加载web-inf/applicationContext.xml文件 -->
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc-front.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>front</servlet-name>
+        <url-pattern>*.shtml</url-pattern>
+    </servlet-mapping>
+
+
+    <!--配置后台 springmvc.back.xml -->
+    <servlet>
+        <servlet-name>back</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc-back.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>back</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <!--配置filter，处理网站编码 -->
+    <filter>
+        <filter-name>encoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encoding</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+
+    <filter-mapping>
+        <filter-name>encoding</filter-name>
+        <url-pattern>*.shtml</url-pattern>
+    </filter-mapping>
+
+
+</web-app>

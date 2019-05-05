@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace 是dao接口的类路径 -->
+<mapper namespace="cn.zhou.core.dao.BrandDao">
+    <!--parameterType="TestBean" 是javabean 的类路径,此处由于配置文件已经配置了别名， 所以可省略部分路径,直接写javabean
+        类名 -->
+
+
+    <!--id 是dao接口的方法名称所需要调用的方法名称 -->
+
+
+    <!--#{} 传入值时，sql解析时，参数是带引号的，而${}穿入值，sql解析时，参数是不带引号的 -->
+    <!--if test 不需要使用 #{} ${}取值其中 ${}后台会报错， #{}不报错，到时也达不到预期效果，直接属性名机油可以了 -->
+
+    <insert id="add" parameterType="BrandBean">
+		insert into bbs_sport (id, name,
+		description,image_url,web_site,sort,is_display)
+		value(#{id}
+		,
+		#{name }
+		,
+		#{description}
+		,
+		#{imageUrl}
+		,
+		#{webSite}
+		,
+		#{sort}
+		,
+		#{isDisplay})
+	</insert>
+
+    <resultMap type="BrandBean" id="resultMap">
+        <!--column 数据库中的属性的列名字,property javabean中的属性名字 -->
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="image_url" property="imageUrl"/>
+        <result column="web_site" property="webSite"/>
+
+        <!-- <result column="sort" javaType="int" /> -->    <!-- property="sort" -->
+        <result column="sort" property="sort"/>
+        <result column="is_display" property="isDisplay"/>
+    </resultMap>
+
+
+    <!-- 品牌页面数据查询 -->
+    <select id="query" parameterType="BrandBean"
+            resultMap="resultMap">
+        select*from
+        bbs_sport
+        <where>
+            <if test="id!=null">
+                and name=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+
+            <if test="isDisplay!=null">
+                and is_display=#{isDisplay}
+            </if>
+        </where>
+        <!--mybaties使用 and 代替 & -->
+        limit #{startIndex},#{pageSize}
+    </select>
+
+
+    <!-- 查询数据库的总记录数 -->
+    <select id="queryTotal" resultType="Integer"> <!-- parameterType="BrandBean" -->
+        select count(*) from bbs_sport
+    </select>
+
+
+    <!--#{} 传入值时，sql解析时，参数是带引号的，而${}穿入值，sql解析时，参数是不带引号的。 -->
+    <select id="queryById" parameterType="Integer"
+            resultMap="resultMap">
+        select*from
+        bbs_sport
+        <where>
+            id=#{id}
+        </where>
+        <!-- limit 0,5 -->
+    </select>
+
+    <!-- 根据品牌名字查询品牌数据 -->
+    <select id="queryByName" parameterType="String"
+            resultMap="resultMap">
+		select*from
+		bbs_sport
+		limit 0,5
+	</select>
+
+    <!-- 根据品牌id删除品牌数据 -->
+    <delete id="deleteById" parameterType="Integer">
+        delete from bbs_sport
+        <where>
+            id=#{id}
+        </where>
+    </delete>
+
+    <!-- 根据品牌多个id删除品牌数据 -->
+    <!-- mybaties 之 foreach::: parameterType="List" ->collection="array" parameterType="List"
+        ->collection="map" -->
+    <delete id="deleteByIds" parameterType="list">
+        delete from bbs_sport
+        <where>
+            id in
+            <foreach collection="array" item="ids" open="(" close=")"
+                     separator=",">
+                #{ids}
+            </foreach>
+        </where>
+    </delete>
+
+
+    <!-- 根据品牌id修改品牌数据 -->
+    <update id="updateById" parameterType="brandBean">
+        update bbs_sport
+        <set>
+            <!-- <if test="id!=null"> id=#{id}, </if> id不修改 -->
+
+            <if test="name!=null">
+                name=#{name},
+            </if>
+
+            <if test="description!=null">
+                description=#{description},
+            </if>
+
+            <if test="imageUrl!=null">
+                image_url=#{imageUrl},
+            </if>
+
+            <if test="webSite!=null">
+                web_site=#{webSite},
+            </if>
+
+            <if test="sort!=null">
+                sort=#{sort},
+            </if>
+
+            <if test="isDisplay!=null">
+                is_display=#{isDisplay}
+            </if>
+        </set>
+
+        <where>
+            id=#{id}
+        </where>
+    </update>
+
+
+    <!--**********************查询优化************************************************************** -->
+    <sql id="partQuery">
+		select*from bbs_sport
+	</sql>
+
+    <select id="getBrand" parameterType="brandBean" resultMap="resultMap" databaseId="id" useCache="true">
+        <include refid="partQuery" />
+        <include refid="partQuery"></include>
+    </select>
+
+
+</mapper>

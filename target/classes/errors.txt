@@ -1,0 +1,227 @@
+02-Mar-2019 20:54:31.209 严重 [RMI TCP Connection(2)-127.0.0.1]
+org.apache.catalina.core.StandardContext.startInternal One or more
+listeners failed to start. Full details will be found
+in the appropriate container log file
+
+02-Mar-2019 20:54:31.227 严重 [RMI TCP Connection(2)-127.0.0.1]
+org.apache.catalina.core.StandardContext.startInternal Context []
+ startup failed due to previous errors
+[2019-03-02 08:54:31,307] Artifact new_sports_shop:war:
+ Error during artifact deployment. See server log for details.
+
+02-Mar-2019 20:54:37.241 信息 [Catalina-utility-1]
+org.apache.catalina.startup.HostConfig.deployDirectory
+部署 web 应用程序目录
+[/home/zhou/workspace/program/JAVA/Tomcat/apache-tomcat-9.0.14/webapps/manager]
+
+02-Mar-2019 20:54:37.300 信息 [Catalina-utility-1]
+org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。
+为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。
+
+在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+
+02-Mar-2019 20:54:37.329 信息 [Catalina-utility-1]
+org.apache.catalina.startup.HostConfig.deployDirectory Deployment
+ of web application directory
+ [/home/zhou/workspace/program/JAVA/Tomcat/apache-tomcat-9.0.14/webapps/manager]
+ has finished in [87] ms
+
+
+
+/*********************************////////////*//*/*/*/*//*/**//*/*/*/*/*/**//*/*/*/*/*/*78787878
+
+
+02-Mar-2019 20:54:30.111 信息 [RMI TCP Connection(2)-127.0.0.1]
+org.apache.catalina.core.ApplicationContext.log
+No Spring WebApplicationInitializer types detected on classpath
+
+02-Mar-2019 20:54:30.513 信息 [RMI TCP Connection(2)-127.0.0.1]
+org.apache.catalina.core.ApplicationContext.log Initializing
+ Spring root WebApplicationContext
+02-Mar-2019 20:54:31.209 严重 [RMI TCP Connection(2)-127.0.0.1]
+
+org.apache.catalina.core.StandardContext.listenerStart 异常将上下文初始化事件发送到类的侦听器实例.
+[org.springframework.web.context.ContextLoaderListener]
+
+ org.springframework.beans.factory.parsing.BeanDefinitionParsingException:
+  Configuration problem: Failed to import bean definitions from relative
+  location [config/*.xml]
+
+Offending resource: class path resource [application-context.xml];
+nested exception is org.springframework.beans.factory.BeanDefinitionStoreException:
+Failed to read candidate component class:
+file  [/home/zhou/workspace/program/JAVA/Tomcat/apache-tomcat-9.0.14/webapps/
+ROOT/WEB-INF/classes/cn/zhou/core/dao/TestDao.class];
+nested exception is org.springframework.core.NestedIOException:
+ ASM ClassReader failed to parse class file - probably due
+ to a new Java class file version that isn't supported yet:
+ file [/home/zhou/workspace/program/JAVA/Tomcat/apache-tomcat-9.0.14/webapps/
+ ROOT/WEB-INF/classes/cn/zhou/core/dao/TestDao.class];
+
+  nested exception is java.lang.IllegalArgumentException (jdk
+    我原来采用的是spring3.2.0的版本jdk8.0的版本)
+
+at org.springframework.beans.factory.parsing.FailFastProblemReporter.error
+(FailFastProblemReporter.java:68)
+
+at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:85)
+at org.springframework.beans.factory.parsing.ReaderContext.error(ReaderContext.java:76)
+
+at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.importBeanDefinitionResource(DefaultBeanDefinitionDocumentReader.java:272)
+at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseDefaultElement(DefaultBeanDefinitionDocumentReader.java:197)
+at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:182)
+at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:139)
+at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:108)
+at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:493)
+at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:390)
+at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
+at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
+at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
+at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:125)
+at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:94)
+at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
+at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:537)
+at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:451)
+at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
+at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
+at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
+at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4663)
+at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5131)
+at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:713)
+at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:695)
+at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1729)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:287)
+at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819)
+at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:457)
+at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:406)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:287)
+at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819)
+at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468)
+at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76)
+at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309)
+at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1401)
+at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357)
+at sun.rmi.transport.Transport$1.run(Transport.java:200)
+at sun.rmi.transport.Transport$1.run(Transport.java:197)
+at java.security.AccessController.doPrivileged(Native Method)
+at sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573)
+at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:835)
+at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688)
+at java.security.AccessController.doPrivileged(Native Method)
+at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException:
+ Failed to read candidate component class:
+
+file[/home/zhou/workspace/program/JAVA/Tomcat/apache-tomcat-9.0.14/webapps/ROOT/WEB-INF/classes/cn/zhou/core/dao/TestDao.class]; nested exception is org.springframework.core.NestedIOException: ASM ClassReader failed to parse class file - probably due to a new Java class file version that isn't supported yet: file [/home/zhou/workspace/program/JAVA/Tomcat/apache-tomcat-9.0.14/webapps/ROOT/WEB-INF/classes/cn/zhou/core/dao/TestDao.class]; nested exception is java.lang.IllegalArgumentException
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:290)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:242)
+	at org.springframework.context.annotation.ComponentScanBeanDefinitionParser.parse(ComponentScanBeanDefinitionParser.java:84)
+	at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:73)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1438)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1428)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:185)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:139)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:108)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:493)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:390)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.importBeanDefinitionResource(DefaultBeanDefinitionDocumentReader.java:261)
+	... 64 more
+
+Caused by: org.springframework.core.NestedIOException: ASM ClassReader failed to parse class file - probably due to a new Java class file version that isn't supported yet: file [/home/zhou/workspace/program/JAVA/Tomcat/apache-tomcat-9.0.14/webapps/ROOT/WEB-INF/classes/cn/zhou/core/dao/TestDao.class]; nested exception is java.lang.IllegalArgumentException
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:56)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:80)
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:102)
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:266)
+	... 79 more
+
+Caused by: java.lang.IllegalArgumentException
+	at org.springframework.asm.ClassReader.<init>(Unknown Source)
+	at org.springframework.asm.ClassReader.<init>(Unknown Source)
+	at org.springframework.asm.ClassReader.<init>(Unknown Source)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:53)
+	... 82 more
+
+02-Mar-2019 20:54:31.230 信息 [RMI TCP Connection(2)-127.0.0.1] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+02-Mar-2019 20:54:31.243 严重 [RMI TCP Connection(2)-127.0.0.1] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class [org.springframework.web.context.ContextLoaderListener]
+ java.lang.IllegalStateException: BeanFactory not initialized or already closed - call 'refresh' before accessing beans via the ApplicationContext
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.getBeanFactory(AbstractRefreshableApplicationContext.java:171)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1090)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1064)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1010)
+	at org.springframework.web.context.ContextLoader.closeWebApplicationContext(ContextLoader.java:559)
+	at org.springframework.web.context.ContextLoaderListener.contextDestroyed(ContextLoaderListener.java:143)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4710)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5353)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:187)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:713)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:695)
+	at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1729)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:287)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:457)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:406)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:287)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468)
+	at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76)
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309)
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1401)
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357)
+	at sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:835)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
